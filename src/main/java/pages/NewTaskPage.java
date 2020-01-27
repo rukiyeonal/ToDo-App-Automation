@@ -1,11 +1,12 @@
 package pages;
+import base.BasePage;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
-public class NewTaskPage extends BasePage{
+public class NewTaskPage extends BasePage {
 
     public NewTaskPage(AndroidDriver driver) {
         super(driver);
@@ -41,13 +42,9 @@ public class NewTaskPage extends BasePage{
         return this;
     }
 
-    public NewTaskPage tapSaveTaskFab() {
+    public TaskListPage tapSaveTaskFab() {
         tap(saveTaskFab);
-        return this;
+        return new TaskListPage(driver);
     }
 
-    public void createANewTask() {
-        NewTaskPage newTaskPage = new NewTaskPage(driver);
-        newTaskPage.tapAddTaskFab().writeTaskTitle().writeTaskDescription().tapSaveTaskFab();
-    }
 }

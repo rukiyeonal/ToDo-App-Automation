@@ -1,4 +1,5 @@
 package pages;
+import base.BasePage;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -33,9 +34,23 @@ public class TaskListPage extends BasePage {
         return this;
     }
 
+    public boolean isChecked(int index) {
+        MobileElement element = completeCheckboxs.get(0);
+        String attributeValue = element.getAttribute("checked");
+        return Boolean.valueOf(attributeValue);
+    }
+
+    public String getTitle(int index){
+        return taskTitles.get(index).getText();
+    }
+
     public TaskListPage openFilters() {
         tap(filterButton);
         return this;
+    }
+
+    public int getTitleListSize(){
+        return taskTitles.size();
     }
 
     public TaskListPage filterTasks(String selectedFilter) {
@@ -51,7 +66,7 @@ public class TaskListPage extends BasePage {
     }
 
     public boolean isFilterTypeInfoTextTrue(String selectedFilter) {
-        if (selectedFilter.equals(readText(filterTypeInfoText))) {
+        if (selectedFilter.equals(read(filterTypeInfoText))) {
             return true;
         } else
             return false;

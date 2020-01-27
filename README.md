@@ -1,5 +1,4 @@
-# Hepsiburada Case Study 
-## ToDoApp - Test Automation with Appium using Maven Framework  
+# ToDoApp - Test Automation with Appium using Maven Framework  
   
 ### Dependency Info
 Checked the versions of these Maven dependencies from [this](https://mvnrepository.com/) link.
